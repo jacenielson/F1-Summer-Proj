@@ -1,0 +1,6 @@
+@F1RaceControl_HostAddress = http://localhost:5191
+
+GET {{F1RaceControl_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
