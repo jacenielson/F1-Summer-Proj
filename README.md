@@ -20,7 +20,7 @@ This project serves as a comprehensive learning exercise for my 4th semester, fo
     * [x] Initialize .NET Web API project and local Git repository.
     * [x] Configure `HttpClient` factory in C# to consume OpenF1 endpoints.
     * [x] Create basic JSON-to-C# DTOs (Data Transfer Objects) for Driver and Session data.
-    * [ ] **Milestone:** A console log or basic HTML list showing real-time driver names fetched via the C# backend.
+    * [x] **Milestone:** A console log or basic HTML list showing real-time driver names fetched via the C# backend.
 
 ### Phase 2: Backend Logic & Secure Architecture (Week 2)
 * **Objective:** Implement secure coding practices and data filtering.

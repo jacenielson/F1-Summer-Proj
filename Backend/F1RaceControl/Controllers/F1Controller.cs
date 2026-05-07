@@ -6,22 +6,29 @@ namespace F1RaceControl.Controllers;
 [Route("api/[controller]")] // Sets the URL to - /api/f1
 public class F1Controller : ControllerBase
 {
-    [HttpGet("hello")]
-    public IActionResult GetHello()
+    private readonly IHttpClientFactory _httpClientFactory;
+
+    public F1Controller(IHttpClientFactory httpClientFactory)
     {
-        return Ok(new {message = "Box, Box! API works"});
+        _httpClientFactory = httpClientFactory;
     }
 
-    [HttpGet("status")]
-    public IActionResult GetStatus()
+    [HttpGet("drivers")]
+    public async Task<IActionResult> GetDrivers()
     {
-        var status = new
+        var client = _httpClientFactory.CreateClient("OpenF1");
+        var response = await client.GetAsync("drivers?session_key=9158");
+
+        if (response.IsSuccessStatusCode)
         {
-            Connection = "Stable",
-            TargetAPI = "OpenF1",
-            Timestamp = DateTime.Now
-        };
+            var json = await response.Content.ReadAsStringAsync();
 
-        return Ok(status);
+            Console.WriteLine("F1 Data Fetched");
+            Console.WriteLine(json.Substring(0, 500) + "..."); //Lost the first 500 char
+
+            return Ok(json);
+        }
+        return BadRequest("Could not reach F1 API");
     }
+
 }
