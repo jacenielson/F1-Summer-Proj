@@ -6,8 +6,11 @@ namespace F1RaceControl.Controllers;
 [Route("api/[controller]")] // Sets the URL to - /api/f1
 public class F1Controller : ControllerBase
 {
+    //IHttpClientFactory is a type from Microsoft.Extensions.Http
     private readonly IHttpClientFactory _httpClientFactory;
 
+    
+    // This is called Dependency Injection
     public F1Controller(IHttpClientFactory httpClientFactory)
     {
         _httpClientFactory = httpClientFactory;
