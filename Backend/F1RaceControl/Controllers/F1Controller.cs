@@ -18,7 +18,7 @@ public class F1Controller : ControllerBase
     }
 
     [HttpGet("drivers/{sessionKey}")]
-    public async Task<IActionResult> GetDrivers( int sessionKey)
+    public async Task<IActionResult> GetDrivers([FromRoute(Name = "sessionKey")] int sessionKey)
     {
        var drivers = await _f1Service.GetDriversAsync(sessionKey);
        return Ok(drivers);

@@ -22,6 +22,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI(options =>
     {
         options.SwaggerEndpoint("/openapi/v1.json", "F1 Race Control API v1");
+        options.RoutePrefix = string.Empty;
     });
 }
 
