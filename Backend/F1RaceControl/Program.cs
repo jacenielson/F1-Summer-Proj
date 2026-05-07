@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Builder;
+using F1RaceControl.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -10,6 +11,7 @@ builder.Services.AddHttpClient("OpenF1", client =>
 {
     client.BaseAddress = new Uri("https://api.openf1.org/v1/");
 });
+builder.Services.AddScoped<IF1Service, F1Service>();
 //This must follow adding the client
 var app = builder.Build();
 
