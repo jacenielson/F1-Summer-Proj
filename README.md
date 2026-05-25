@@ -26,8 +26,8 @@ This project serves as a comprehensive learning exercise for my 4th semester, fo
 * **Objective:** Implement secure coding practices and data filtering.
 * **Tasks:**
     * [x] Implement an **Abstraction Layer**: The frontend should never call OpenF1 directly; it calls *my* API.
-    * [ ] **Secure Coding:** Move API base URLs and sensitive configurations to `appsettings.json`.
-    * [ ] **Data Transformation:** Write C# logic to calculate gaps between drivers or average lap times before sending data to the UI.
+    * [x] **Secure Coding:** Move API base URLs and sensitive configurations to `appsettings.json`.
+    * [x] **Data Transformation:** Write C# logic to calculate gaps between drivers or average lap times before sending data to the UI.
     * [x] **Milestone:** Functional API endpoints (e.g., `/api/race/standings`) returning cleaned, optimized data.
 
 ### Phase 3: The "Race Control" UI (Week 3)
