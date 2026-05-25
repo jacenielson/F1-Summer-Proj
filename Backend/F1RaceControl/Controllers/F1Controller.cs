@@ -24,4 +24,16 @@ public class F1Controller : ControllerBase
        return Ok(drivers);
     }
 
+    [HttpGet("teams/{sessionKey}")]
+    public async Task<IActionResult> GetTeamSummaries([FromRoute] int sessionKey)
+    {
+        if (sessionKey <= 0)
+        {
+            return BadRequest("Invalid Session Key.");
+        }
+
+        var summaries = await _f1Service.GetTeamSummariesAsync(sessionKey);
+        return Ok(summaries);
+    }
+
 }

@@ -9,7 +9,8 @@ builder.Services.AddOpenApi();
 
 builder.Services.AddHttpClient("OpenF1", client =>
 {
-    client.BaseAddress = new Uri("https://api.openf1.org/v1/");
+    var baseUrl = builder.Configuration["OpenF1Settings:BaseUrl"];
+    client.BaseAddress = new Uri(baseUrl ?? throw new InvalidOperationException("OpenF1 BaseUrl is missing from config."));
 });
 builder.Services.AddScoped<IF1Service, F1Service>();
 //This must follow adding the client

@@ -24,9 +24,26 @@ public class F1Service : IF1Service
             DriverNumber = d.driver_number,
             FullName = d.full_name,
             TeamName = d.team_name,
-            TeamColour = d.team_colour,
+            TeamColor = d.team_color,
             HeadshotUrl = d.headshot_url
         });
     }
-        private record OpenF1Driver(int driver_number, string full_name, string team_name, string team_colour, string headshot_url);
+
+    public async Task<IEnumerable<TeamSummaryDto>> GetTeamSummariesAsync(int sessionKey)
+    {
+        var drivers = await GetDriversAsync(sessionKey);
+        var teamSummaries = drivers.GroupBy(d=> d.TeamName)
+        .Select(group => new TeamSummaryDto
+        {
+            TeamName = group.Key,
+            TeamColor = group.First().TeamColor,
+            TotalDrivers = group.Count(),
+            DriverNames = group.Select(d => d.FullName).ToList()
+        })
+        .OrderByDescending(t => t.TotalDrivers);
+
+        return teamSummaries;
+    }
+        private record OpenF1Driver(int driver_number, string full_name, string team_name, string team_color, string headshot_url);
+
 }
