@@ -1,16 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script type="module" src="ui.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Document</title>
-</head>
-<body>
-    <header></header>
-    <main></main>
-    <footer></footer>
-    
-</body>
+  </head>
+  <body>
+    <header class="main-header">
+      <h1>F1 RACE CONTROL</h1>
+      <div class="session-selector">
+        <input
+          type="number"
+          id="session-input"
+          value="9472"
+          placeholder="Session Key"
+        />
+        <button id="load-btn">Sync Data</button>
+      </div>
+    </header>
+
+    <main class="dashboard-grid">
+      <aside class="sidebar">
+        <h2>Team Standings</h2>
+        <div id="teams-container" class="flex-list"></div>
+      </aside>
+
+      <section class="main-stage">
+        <h2>Active Driver Grid</h2>
+        <div id="drivers-container" class="drivers-grid"></div>
+      </section>
+    </main>
+    <script type="module" src="app.js"></script>
+  </body>
 </html>

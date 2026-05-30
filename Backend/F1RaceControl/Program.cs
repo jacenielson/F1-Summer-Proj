@@ -13,6 +13,17 @@ builder.Services.AddHttpClient("OpenF1", client =>
     client.BaseAddress = new Uri(baseUrl ?? throw new InvalidOperationException("OpenF1 BaseUrl is missing from config."));
 });
 builder.Services.AddScoped<IF1Service, F1Service>();
+
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy.AllowAnyOrigin()
+        .AllowAnyHeader()
+        .AllowAnyMethod();
+    });
+});
+
 //This must follow adding the client
 var app = builder.Build();
 
@@ -29,6 +40,9 @@ if (app.Environment.IsDevelopment())
 
 
 app.UseHttpsRedirection();
+
+//This needs to be bettween redirection and controllers
+app.UseCors();
 
 app.MapControllers();
 
