@@ -33,10 +33,10 @@ This project serves as a comprehensive learning exercise for my 4th semester, fo
 ### Phase 3: The "Race Control" UI (Week 3)
 * **Objective:** Build a responsive, high-fidelity dashboard.
 * **Tasks:**
-    * [ ] Design a "Dark Mode" theme using CSS variables (F1 Red: `#E10600`).
-    * [ ] Implement **CSS Grid** for the dashboard layout (Sidebar for standings, Main stage for telemetry).
-    * [ ] Use **Flexbox** for dynamic driver cards that scale across mobile/desktop.
-    * [ ] **Milestone:** A visually polished static dashboard populated with real data.
+    * [x] Design a "Dark Mode" theme using CSS variables (F1 Red: `#E10600`).
+    * [x] Implement **CSS Grid** for the dashboard layout (Sidebar for standings, Main stage for telemetry).
+    * [x] Use **Flexbox** for dynamic driver cards that scale across mobile/desktop.
+    * [x] **Milestone:** A visually polished static dashboard populated with real data.
 
 ### Phase 4: Dynamic Interactions & State (Week 4)
 * **Objective:** Enhance the user experience with JavaScript.
