@@ -1,5 +1,6 @@
 using System.Net.Http.Json;
 using F1RaceControl.Models;
+using System.Text.Json.Serialization;
 
 namespace F1RaceControl.Services;
 
@@ -44,6 +45,6 @@ public class F1Service : IF1Service
 
         return teamSummaries;
     }
-        private record OpenF1Driver(int driver_number, string full_name, string team_name, string team_color, string headshot_url);
+        private record OpenF1Driver(int driver_number, string full_name, string team_name, [property: JsonPropertyName("team_colour")] string team_color, string headshot_url);
 
 }
